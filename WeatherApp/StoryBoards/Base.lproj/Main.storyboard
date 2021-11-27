@@ -36,7 +36,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="collectionCell" id="JCr-J2-log">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="collectionCell" id="JCr-J2-log" customClass="CollectionViewCell" customModule="WeatherApp" customModuleProvider="target">
                                         <rect key="frame" x="57" y="0.0" width="280" height="128"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="o8b-je-Tb7">
@@ -79,6 +79,12 @@
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="280" height="128"/>
+                                        <connections>
+                                            <outlet property="dayTimeLable" destination="r6e-1n-Ca2" id="HjE-Xb-hdK"/>
+                                            <outlet property="feltWeahterLabel" destination="mDr-e7-MU2" id="UPE-Gb-5vh"/>
+                                            <outlet property="imageCollectionView" destination="gxt-0I-m9U" id="1OL-pO-nnl"/>
+                                            <outlet property="predictionWeatherLabel" destination="qoU-jU-b1y" id="Qak-Yw-dTQ"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
@@ -89,7 +95,7 @@
                                     <constraint firstAttribute="width" secondItem="B8P-Nz-hYS" secondAttribute="height" multiplier="187:116" id="Q7m-EK-UoC"/>
                                 </constraints>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="tableCell" id="DZo-ha-hOa">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="tableCell" id="DZo-ha-hOa" customClass="TableViewCell" customModule="WeatherApp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="44.5" width="374" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="DZo-ha-hOa" id="XqN-5B-rc0">
@@ -123,6 +129,11 @@
                                                 <constraint firstItem="U3z-ZN-xGi" firstAttribute="leading" secondItem="XqN-5B-rc0" secondAttribute="leadingMargin" constant="8" id="zFG-mH-SbY"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="imageTableView" destination="MRC-T4-ywL" id="cqB-dl-a85"/>
+                                            <outlet property="titleTableLable" destination="U3z-ZN-xGi" id="4gw-al-Rm0"/>
+                                            <outlet property="valueTableLable" destination="v6p-re-Zu6" id="Hv8-YV-KhC"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -151,15 +162,8 @@
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="JQA-W2-scf" id="n8t-AL-gj9"/>
-                        <outlet property="dayTimeLable" destination="r6e-1n-Ca2" id="Bui-eA-tqd"/>
-                        <outlet property="feltWeahterLabel" destination="mDr-e7-MU2" id="Jpz-8B-b0c"/>
-                        <outlet property="imageCollectionView" destination="gxt-0I-m9U" id="cAN-LX-ZZQ"/>
-                        <outlet property="imageTableView" destination="MRC-T4-ywL" id="8KG-Om-ijF"/>
                         <outlet property="nowLabel" destination="rQh-lP-HPr" id="oSq-H5-AMa"/>
-                        <outlet property="predictionWeatherLabel" destination="qoU-jU-b1y" id="Wji-9I-HpI"/>
-                        <outlet property="titleTableLable" destination="U3z-ZN-xGi" id="iqY-g6-SaY"/>
                         <outlet property="todayLabel" destination="ovv-xX-HGb" id="Ub7-xg-IWd"/>
-                        <outlet property="valueTableLable" destination="Vqc-oY-m5s" id="6uZ-Un-IvD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

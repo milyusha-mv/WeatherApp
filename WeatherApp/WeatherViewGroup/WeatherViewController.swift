@@ -8,11 +8,14 @@
 import UIKit
 
 protocol WeatherViewInputProtocol: AnyObject {
+    func showTodayDay(todayDay: String)
 }
 
 protocol WeatherViewOutputProtocol: AnyObject {
     init(view: WeatherViewInputProtocol)
     func getPredictionWeather()
+    func getTodayWeather()
+    func getTodayDay()
 }
 
 class WeatherViewController: UIViewController {
@@ -20,40 +23,34 @@ class WeatherViewController: UIViewController {
     private let configurator: ConfiguratorProtocol = Configurator()
     
     @IBOutlet weak var todayLabel: UILabel!
-    
-// Outlets in collectionView
-    @IBOutlet weak var dayTimeLable: UILabel!
-    @IBOutlet weak var predictionWeatherLabel: UILabel!
-    @IBOutlet weak var feltWeahterLabel: UILabel!
-    @IBOutlet weak var nowLabel: UILabel!
-    @IBOutlet weak var imageCollectionView: UIImageView!
     @IBOutlet weak var collectionView: UICollectionView!
-    
-// Outlets in tableView
-    @IBOutlet weak var titleTableLable: UILabel!
-    @IBOutlet weak var valueTableLable: UILabel!
-    @IBOutlet weak var imageTableView: UIImageView!
+    @IBOutlet weak var nowLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configurator.configurate(with: self)
-        collectionView.delegate = self
-        collectionView.dataSource = self
+        presenter.getPredictionWeather()
+        presenter.getTodayWeather()
+        presenter.getTodayDay()
+//        collectionView.delegate = self
+//        collectionView.dataSource = self
     }
 }
 
 extension WeatherViewController: WeatherViewInputProtocol {
-
+    func showTodayDay(todayDay: String) {
+        todayLabel.text = todayDay
+    }
 }
 
-extension WeatherViewController: UICollectionViewDataSource, UICollectionViewDelegate {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        1
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
-    }
-    
-}
+//extension WeatherViewController: UICollectionViewDataSource, UICollectionViewDelegate {
+//    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+//        1
+//    }
+//
+//    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+//
+//    }
+//
+//}
 

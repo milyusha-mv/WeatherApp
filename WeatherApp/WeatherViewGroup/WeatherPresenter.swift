@@ -17,9 +17,31 @@ class WeatherPresenter: WeatherViewOutputProtocol {
     }
     
     func getPredictionWeather() {
+        interactor.getDataForCollectionViewCell()
+    }
+    
+    func getTodayWeather() {
+        interactor.getDataForTableViewCell()
+    }
+    
+    func getTodayDay() {
+        interactor.getDataForTodayDay()
     }
 }
 
 extension WeatherPresenter: WeatherViewInteractorOutputProtocol {
+    func dataForCollectionViewCellDidRecieved() {
+        
+    }
+    
+    func dataForTableViewCellDidRecieved() {
+        
+    }
+    
+    func todayDayDidRecieved(humidity: Int) {
+        let todayDay = "\(humidity)"
+        view.showTodayDay(todayDay: todayDay)
+    }
+    
     
 }
