@@ -39,6 +39,7 @@ class RequestManager {
             if let data = data {
                 do {
                     weatherData  = try JSONDecoder().decode(WeatherData.self, from: data)
+                    DataManager.shared.saveWeatherData(data: weatherData)
                     DispatchQueue.main.async {
                         complition(weatherData)
                     }

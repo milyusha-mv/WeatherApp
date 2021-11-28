@@ -8,6 +8,7 @@
 import Foundation
 
 struct WeatherData: Decodable {
+    let now: Double?
     let info: Info?
     let fact: Fact?
     let forecast: Forecast?

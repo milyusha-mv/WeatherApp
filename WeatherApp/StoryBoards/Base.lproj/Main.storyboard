@@ -18,18 +18,18 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ovv-xX-HGb">
-                                <rect key="frame" x="20" y="68" width="94" height="48"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                <rect key="frame" x="20" y="68" width="76" height="38.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="JQA-W2-scf">
-                                <rect key="frame" x="20" y="164" width="394" height="128"/>
+                                <rect key="frame" x="20" y="154.5" width="394" height="128"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="394" id="qG9-uY-kUJ"/>
                                 </constraints>
-                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="dq1-kp-70I">
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="dq1-kp-70I">
                                     <size key="itemSize" width="280" height="128"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -37,7 +37,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="collectionCell" id="JCr-J2-log" customClass="CollectionViewCell" customModule="WeatherApp" customModuleProvider="target">
-                                        <rect key="frame" x="57" y="0.0" width="280" height="128"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="280" height="128"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="o8b-je-Tb7">
                                             <rect key="frame" x="0.0" y="0.0" width="280" height="128"/>
@@ -80,16 +80,16 @@
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="280" height="128"/>
                                         <connections>
-                                            <outlet property="dayTimeLable" destination="r6e-1n-Ca2" id="HjE-Xb-hdK"/>
-                                            <outlet property="feltWeahterLabel" destination="mDr-e7-MU2" id="UPE-Gb-5vh"/>
+                                            <outlet property="feels_likeLabel" destination="mDr-e7-MU2" id="UPE-Gb-5vh"/>
                                             <outlet property="imageCollectionView" destination="gxt-0I-m9U" id="1OL-pO-nnl"/>
-                                            <outlet property="predictionWeatherLabel" destination="qoU-jU-b1y" id="Qak-Yw-dTQ"/>
+                                            <outlet property="part_nameLablel" destination="r6e-1n-Ca2" id="HjE-Xb-hdK"/>
+                                            <outlet property="tempLabel" destination="qoU-jU-b1y" id="Qak-Yw-dTQ"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="B8P-Nz-hYS">
-                                <rect key="frame" x="20" y="400" width="374" height="232"/>
+                                <rect key="frame" x="20" y="390.5" width="374" height="232"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="B8P-Nz-hYS" secondAttribute="height" multiplier="187:116" id="Q7m-EK-UoC"/>
@@ -138,7 +138,7 @@
                                 </prototypes>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rQh-lP-HPr">
-                                <rect key="frame" x="20" y="366" width="50" height="26"/>
+                                <rect key="frame" x="20" y="356.5" width="50" height="26"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
