@@ -7,16 +7,11 @@
 
 import Foundation
 
-enum PartDay: String {
-    case night = "Ночь"
-    case morning = "Утро"
-}
-
 struct Prediction {
-    let part_name: String
-    let temp_min: Int
-    let temp_max: Int
-    let feels_like: Int
+    let partName: String
+    let tempMin: Int
+    let tempMax: Int
+    let feelsLike: Int
     let imageCollection: String
 }
 
@@ -47,7 +42,8 @@ class WeatherPresenter: WeatherViewOutputProtocol {
 }
 
 extension WeatherPresenter: WeatherViewInteractorOutputProtocol {
-    func todayDayDidRecieved(date: Date) {
+    func todayDayDidRecieved(dateUnix: Double) {
+        let date = Date(timeIntervalSince1970: dateUnix)
         let formatter  = DateFormatter()
         formatter.locale = Locale(identifier: "ru_RU")
         formatter.setLocalizedDateFormatFromTemplate("dd MM")
@@ -59,7 +55,7 @@ extension WeatherPresenter: WeatherViewInteractorOutputProtocol {
     func dataForCollectionViewCellDidRecieve(predictions: [Prediction]) {
         let section = CollectionSection()
         predictions.forEach { prediction in
-            section.rows.append(WeatherCell(prediction: prediction))
+            section.rows.append(CollectionCell(prediction: prediction))
         }
         view.reloadCollectionViewData(for: section)
     }

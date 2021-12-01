@@ -22,7 +22,8 @@ class RequestManager {
             components.queryItems = [
                 URLQueryItem(name: "lat", value: requestData.lat),
                 URLQueryItem(name: "lon", value: requestData.lon),
-                URLQueryItem(name: "lang", value: requestData.lang)
+                URLQueryItem(name: "limit", value: requestData.limit),
+                URLQueryItem(name: "extra", value: requestData.extra)
             ]
             return components.url
         }
@@ -38,7 +39,9 @@ class RequestManager {
             }
             if let data = data {
                 do {
-                    weatherData  = try JSONDecoder().decode(WeatherData.self, from: data)
+                    let decoder = JSONDecoder()
+                    decoder.keyDecodingStrategy = .convertFromSnakeCase
+                    weatherData  = try decoder.decode(WeatherData.self, from: data)
                     DataManager.shared.saveWeatherData(data: weatherData)
                     DispatchQueue.main.async {
                         complition(weatherData)

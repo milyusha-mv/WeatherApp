@@ -40,10 +40,9 @@ class WeatherViewController: UIViewController {
         presenter.getTodayDay()
         presenter.getDataForLabel()
         
-        view.backgroundColor = .systemGreen
-        
         collectionView.delegate = self
         collectionView.dataSource = self
+        collectionView.showsHorizontalScrollIndicator = false
     }
 }
 

@@ -12,7 +12,8 @@ struct RequestData {
     let header: String
     let apiKey: String
     let path: String
-    let lang: String
     let lat: String
     let lon: String
+    let limit: String
+    let extra: String
 }

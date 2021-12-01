@@ -21,11 +21,11 @@ struct Info: Decodable {
 
 struct Fact: Decodable {
     let temp: Int? // температура
-    let feels_like: Int? // темп. ощущается
-    let wind_speed: Int? // скорость ветра
-    let pressure_mm: Int? // давление (в мм рт. ст.)
+    let feelsLike: Int? // темп. ощущается
+    let windSpeed: Int? // скорость ветра
+    let pressureMm: Int? // давление (в мм рт. ст.)
     let humidity: Int? // влажность
-    let obs_time: Int? // время замера
+    let obsTime: Int? // время замера
 }
 
 struct Forecast: Decodable {
@@ -33,8 +33,8 @@ struct Forecast: Decodable {
 }
 
 struct Part: Decodable {
-    let part_name: String? // Название времени суток
-    let temp_min: Int? // Минимальная температура для времени суток (°C)
-    let temp_max: Int? // Максимальная температура для времени суток (°C)
-    let feels_like: Int? // Ощущаемая температура (°C)
+    let partName: String? // Название времени суток
+    let tempMin: Int? // Минимальная температура для времени суток (°C)
+    let tempMax: Int? // Максимальная температура для времени суток (°C)
+    let feelsLike: Int? // Ощущаемая температура (°C)
 }

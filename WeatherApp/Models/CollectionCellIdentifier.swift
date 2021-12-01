@@ -17,23 +17,23 @@ protocol SectionRowsRepresentable {
     var rows: [CollectionCellIdentifier] { get set }
 }
 
-class WeatherCell: CollectionCellIdentifier {
-    var height: Float = 200
-    var width: Float = 200
+class CollectionCell: CollectionCellIdentifier {
+    var height: Float = 100
+    var width: Float = 300
     var cellIdentifier = "collectionCell"
     
-    let part_name: String
-    let temp_min: Int
-    let temp_max: Int
-    let feels_like: Int
+    let partName: String
+    let tempMin: Int
+    let tempMax: Int
+    let feelsLike: Int
     let imageCollection: String
     
     
     init(prediction: Prediction) {
-        part_name = prediction.part_name
-        temp_min = prediction.temp_min
-        temp_max = prediction.temp_max
-        feels_like = prediction.feels_like
+        partName = prediction.partName
+        tempMin = prediction.tempMin
+        tempMax = prediction.tempMax
+        feelsLike = prediction.feelsLike
         imageCollection = prediction.imageCollection
     }
 }

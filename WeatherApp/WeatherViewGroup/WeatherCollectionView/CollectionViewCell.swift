@@ -27,13 +27,13 @@ class CollectionViewCell: UICollectionViewCell, CollectionCellRepresentable {
     }
     
     func updateViews() {
-        guard let collectionCell = collectionCell as? WeatherCell else { return }
-        part_nameLablel.text = collectionCell.part_name
-        tempLabel.text = "\(collectionCell.temp_min)° - \(collectionCell.temp_max)°"
-        feels_likeLabel.text = "\(collectionCell.feels_like)"
+        guard let collectionCell = collectionCell as? CollectionCell else { return }
+        part_nameLablel.text = collectionCell.partName
+        if collectionCell.tempMin != collectionCell.tempMax {
+            tempLabel.text = "\(collectionCell.tempMin)° - \(collectionCell.tempMax)°"
+        } else { tempLabel.text = "\(collectionCell.tempMin)°" }
+        feels_likeLabel.text = "Ощущается \(collectionCell.feelsLike)"
+        imageCollectionView.image = UIImage(named: "\(collectionCell.imageCollection)")
         
-//        guard let imageURL = URL(string: predictionCell.imageCollection) else { return }
-//        guard let imageData = RequestManager.shared.fetchImage(with: imageURL) else { return }
-//        imageCollectionView.image = UIImage(data: imageData)
     }
 }

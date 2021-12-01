@@ -16,9 +16,20 @@ class DataManager {
                                   header: "X-Yandex-API-Key",
                                   apiKey: "ce929102-9793-4d2b-a73d-0424b45f723f",
                                   path: "/v2/informers",
-                                  lang: "ru_RU",
                                   lat: "58.0105",
-                                  lon: "56.2502")
+                                  lon: "56.2502",
+                                  limit: "4",
+                                  extra: "true")
+    
+    private let nameOfImages: [String: String] = ["day": "day",
+                                                  "evening": "evening",
+                                                  "morning": "morning",
+                                                  "night": "night"]
+    
+    private let partDays: [String: String] = ["day": "День",
+                                              "evening": "Вечер",
+                                              "morning": "Утро",
+                                              "night": "Ночь"]
 }
 
 extension DataManager {
@@ -34,4 +45,11 @@ extension DataManager {
     func getWeatherData() -> WeatherData? {
         self.weatherData
     }
+    func getNameOfImages() -> [String: String]{
+        nameOfImages
+    }
+    func getpartDay() -> [String: String]{
+        partDays
+    }
+    
 }
