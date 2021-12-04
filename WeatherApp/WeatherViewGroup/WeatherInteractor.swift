@@ -16,8 +16,8 @@ protocol WeatherViewInteractorInputProtocol: AnyObject {
 }
 
 protocol WeatherViewInteractorOutputProtocol: AnyObject {
-    func dataForCollectionViewCellDidRecieve(predictions: [Prediction])
-    func dataForTableViewCellDidRecieved()
+    func dataForCollectionViewCellDidRecieve(featureWethers: [FeatureWeather])
+    func dataForTableViewCellDidRecieved(currentWeathers: [CurrentWeather])
     func todayDayDidRecieved(dateUnix: Double)
     func constantsDidRecieved(text: String)
 }
@@ -34,13 +34,21 @@ class WeatherViewInteractor: WeatherViewInteractorInputProtocol {
         let weatherData = DataManager.shared.getWeatherData()
         if weatherData == nil {
             RequestManager.shared.fetchData(with: requestData) { weatherData in
-                self.fillPredictions(for: weatherData)
+                self.fillFeatureWeathers(for: weatherData)
             }
         }
-        fillPredictions(for: weatherData)
+        fillFeatureWeathers(for: weatherData)
     }
     
     func getDataForTableViewCell() {
+        let requestData = DataManager.shared.requestData
+        let weatherData = DataManager.shared.getWeatherData()
+        if weatherData == nil {
+            RequestManager.shared.fetchData(with: requestData) { weatherData in
+                self.fillCurrentWeathers(for: weatherData)
+            }
+        }
+        fillCurrentWeathers(for: weatherData)
     }
     
     func getDataForTodayDay() {
@@ -68,8 +76,40 @@ class WeatherViewInteractor: WeatherViewInteractorInputProtocol {
 }
 
 extension WeatherViewInteractor {
-    func fillPredictions(for weatherData: WeatherData?) {
-        var predictions: [Prediction] = []
+    func fillCurrentWeathers(for weatherData: WeatherData?) {
+        var currentWeathers: [CurrentWeather] = []
+        
+        guard let weatherData = weatherData else { return }
+    
+        let titles = DataManager.shared.getTitles()
+        let icons = DataManager.shared.getIcons()
+        let valueSigns = DataManager.shared.getValueSigns()
+        
+        let values: [Any] = [weatherData.fact?.temp as Any,
+                      weatherData.fact?.feelsLike as Any,
+                      weatherData.fact?.windSpeed as Any,
+                      weatherData.fact?.pressureMm as Any,
+                      weatherData.fact?.humidity as Any]
+                     // weatherData.fact?.obsTime as Any]
+        
+        for index in 0...values.count - 1 {
+            let title = titles[index]
+            guard let value = values[index] as? Int else { return }
+            let icon = icons[title] ?? ""
+            let valueSign = valueSigns[title] ?? ""
+            let currentWeather = CurrentWeather(title: title,
+                                                value: value,
+                                                valueSign: valueSign,
+                                                image: icon)
+            currentWeathers.append(currentWeather)
+        }
+        presenter.dataForTableViewCellDidRecieved(currentWeathers: currentWeathers)
+    }
+}
+
+extension WeatherViewInteractor {
+    func fillFeatureWeathers(for weatherData: WeatherData?) {
+        var featureWethers: [FeatureWeather] = []
         
         guard let weatherData = weatherData else { return }
         
@@ -87,14 +127,13 @@ extension WeatherViewInteractor {
             let nameOfImages = DataManager.shared.getNameOfImages()
             let imageCollection = nameOfImages[partName] ?? ""
 
-            let prediction = Prediction(partName: partDay,
+            let featureWeather = FeatureWeather(partName: partDay,
                                         tempMin: tempMin,
                                         tempMax: tempMax,
                                         feelsLike: feelsLike,
                                         imageCollection: imageCollection)
-            predictions.append(prediction)
+            featureWethers.append(featureWeather)
         }
-        self.presenter.dataForCollectionViewCellDidRecieve(predictions: predictions)
+        self.presenter.dataForCollectionViewCellDidRecieve(featureWethers: featureWethers)
     }
-    
 }

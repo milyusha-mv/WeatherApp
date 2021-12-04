@@ -30,11 +30,31 @@ class DataManager {
                                               "evening": "Вечер",
                                               "morning": "Утро",
                                               "night": "Ночь"]
+    private let titles = ["Температура",
+                          "Ощущается как",
+                          "Скорость ветра",
+                          "Давление",
+                          "Влажность",
+                          "Время"]
+    
+    private let icons: [String: String] = ["Температура": "temp",
+                                           "Ощущается как": "temp",
+                                           "Скорость ветра": "wind_speed",
+                                           "Давление": "pressure_mm",
+                                           "Влажность": "humidity",
+                                           "Время": "time"]
+    
+    private let valueSigns: [String: String] = ["Температура": "°",
+                                           "Ощущается как": "°",
+                                           "Скорость ветра": "м/с",
+                                           "Давление": "мм",
+                                           "Влажность": "%",
+                                           "Время": ""]
 }
 
 extension DataManager {
     func getConstant() -> String {
-        "Сейчас"
+        "СЕЙЧАС"
     }
 }
 
@@ -45,11 +65,20 @@ extension DataManager {
     func getWeatherData() -> WeatherData? {
         self.weatherData
     }
-    func getNameOfImages() -> [String: String]{
+    func getNameOfImages() -> [String: String] {
         nameOfImages
     }
-    func getpartDay() -> [String: String]{
+    func getpartDay() -> [String: String] {
         partDays
+    }
+    func getTitles() -> [String] {
+        titles
+    }
+    func getIcons() -> [String: String] {
+        icons
+    }
+    func getValueSigns() -> [String: String] {
+        valueSigns
     }
     
 }

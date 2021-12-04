@@ -18,8 +18,8 @@ protocol SectionRowsRepresentable {
 }
 
 class CollectionCell: CollectionCellIdentifier {
-    var height: Float = 100
-    var width: Float = 300
+    var height: Float = 50
+    var width: Float = 50
     var cellIdentifier = "collectionCell"
     
     let partName: String
@@ -29,12 +29,12 @@ class CollectionCell: CollectionCellIdentifier {
     let imageCollection: String
     
     
-    init(prediction: Prediction) {
-        partName = prediction.partName
-        tempMin = prediction.tempMin
-        tempMax = prediction.tempMax
-        feelsLike = prediction.feelsLike
-        imageCollection = prediction.imageCollection
+    init(featureWeather: FeatureWeather) {
+        partName = featureWeather.partName
+        tempMin = featureWeather.tempMin
+        tempMax = featureWeather.tempMax
+        feelsLike = featureWeather.feelsLike
+        imageCollection = featureWeather.imageCollection
     }
 }
 

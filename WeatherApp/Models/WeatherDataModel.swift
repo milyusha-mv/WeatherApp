@@ -25,7 +25,7 @@ struct Fact: Decodable {
     let windSpeed: Int? // скорость ветра
     let pressureMm: Int? // давление (в мм рт. ст.)
     let humidity: Int? // влажность
-    let obsTime: Int? // время замера
+    let obsTime: Double? // время замера
 }
 
 struct Forecast: Decodable {

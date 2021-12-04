@@ -7,12 +7,19 @@
 
 import Foundation
 
-struct Prediction {
+struct FeatureWeather {
     let partName: String
     let tempMin: Int
     let tempMax: Int
     let feelsLike: Int
     let imageCollection: String
+}
+
+struct CurrentWeather {
+    let title: String
+    let value: Int
+    let valueSign: String
+    let image: String
 }
 
 class WeatherPresenter: WeatherViewOutputProtocol {
@@ -28,7 +35,7 @@ class WeatherPresenter: WeatherViewOutputProtocol {
         interactor.getConstants()
     }
     
-    func getPredictionWeather() {
+    func getFeatureWeather() {
         interactor.getDataForCollectionViewCell()
     }
     
@@ -42,6 +49,7 @@ class WeatherPresenter: WeatherViewOutputProtocol {
 }
 
 extension WeatherPresenter: WeatherViewInteractorOutputProtocol {
+
     func todayDayDidRecieved(dateUnix: Double) {
         let date = Date(timeIntervalSince1970: dateUnix)
         let formatter  = DateFormatter()
@@ -52,15 +60,20 @@ extension WeatherPresenter: WeatherViewInteractorOutputProtocol {
         view.showTodayDay(todayDay: todayDay)
     }
     
-    func dataForCollectionViewCellDidRecieve(predictions: [Prediction]) {
+    func dataForCollectionViewCellDidRecieve(featureWethers: [FeatureWeather]) {
         let section = CollectionSection()
-        predictions.forEach { prediction in
-            section.rows.append(CollectionCell(prediction: prediction))
+        featureWethers.forEach { featureWeather in
+            section.rows.append(CollectionCell(featureWeather: featureWeather))
         }
         view.reloadCollectionViewData(for: section)
     }
     
-    func dataForTableViewCellDidRecieved() {
+    func dataForTableViewCellDidRecieved(currentWeathers: [CurrentWeather]) {
+        let section = TableSection()
+        currentWeathers.forEach { currentWeather in
+            section.rows.append(TableCell(currentWeather: currentWeather))
+        }
+        view.reloadTableViewData(for: section)
     }
     
     func constantsDidRecieved(text: String) {

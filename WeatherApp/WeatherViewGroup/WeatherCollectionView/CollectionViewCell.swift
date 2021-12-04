@@ -15,9 +15,9 @@ protocol CollectionCellRepresentable {
 class CollectionViewCell: UICollectionViewCell, CollectionCellRepresentable {
     
     
-    @IBOutlet weak var part_nameLablel: UILabel!
+    @IBOutlet weak var partТameLablel: UILabel!
     @IBOutlet weak var tempLabel: UILabel!
-    @IBOutlet weak var feels_likeLabel: UILabel!
+    @IBOutlet weak var feelsДikeLabel: UILabel!
     @IBOutlet weak var imageCollectionView: UIImageView!
     
     var collectionCell: CollectionCellIdentifier? {
@@ -28,11 +28,13 @@ class CollectionViewCell: UICollectionViewCell, CollectionCellRepresentable {
     
     func updateViews() {
         guard let collectionCell = collectionCell as? CollectionCell else { return }
-        part_nameLablel.text = collectionCell.partName
+        self.backgroundColor = .white
+        self.layer.cornerRadius = 15
+        partТameLablel.text = collectionCell.partName
         if collectionCell.tempMin != collectionCell.tempMax {
             tempLabel.text = "\(collectionCell.tempMin)° - \(collectionCell.tempMax)°"
         } else { tempLabel.text = "\(collectionCell.tempMin)°" }
-        feels_likeLabel.text = "Ощущается \(collectionCell.feelsLike)"
+        feelsДikeLabel.text = "Ощущается \(collectionCell.feelsLike)"
         imageCollectionView.image = UIImage(named: "\(collectionCell.imageCollection)")
         
     }
