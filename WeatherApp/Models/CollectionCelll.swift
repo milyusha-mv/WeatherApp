@@ -8,8 +8,6 @@
 import Foundation
 
 protocol CollectionCellIdentifier {
-    var height: Float { get }
-    var width: Float { get }
     var cellIdentifier: String { get }
 }
 
@@ -18,9 +16,8 @@ protocol SectionRowsRepresentable {
 }
 
 class CollectionCell: CollectionCellIdentifier {
-    var height: Float = 50
-    var width: Float = 50
     var cellIdentifier = "collectionCell"
+    var cornerRadius = 15
     
     let partName: String
     let tempMin: Int

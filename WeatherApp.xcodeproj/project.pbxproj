@@ -8,6 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		430AA557275A8618005EC99D /* TableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 430AA556275A8618005EC99D /* TableCell.swift */; };
+		4310B687275D2BA300DBB2CD /* AppIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 4310B686275D2BA300DBB2CD /* AppIcon.png */; };
+		4310B68D275D2BD200DBB2CD /* pressure_mm.png in Resources */ = {isa = PBXBuildFile; fileRef = 4310B688275D2BD200DBB2CD /* pressure_mm.png */; };
+		4310B68E275D2BD200DBB2CD /* wind_speed.png in Resources */ = {isa = PBXBuildFile; fileRef = 4310B689275D2BD200DBB2CD /* wind_speed.png */; };
+		4310B68F275D2BD200DBB2CD /* humidity.png in Resources */ = {isa = PBXBuildFile; fileRef = 4310B68A275D2BD200DBB2CD /* humidity.png */; };
+		4310B690275D2BD200DBB2CD /* temp.png in Resources */ = {isa = PBXBuildFile; fileRef = 4310B68B275D2BD200DBB2CD /* temp.png */; };
+		4310B691275D2BD200DBB2CD /* time.png in Resources */ = {isa = PBXBuildFile; fileRef = 4310B68C275D2BD200DBB2CD /* time.png */; };
+		4310B696275D2BDB00DBB2CD /* day.png in Resources */ = {isa = PBXBuildFile; fileRef = 4310B692275D2BDB00DBB2CD /* day.png */; };
+		4310B697275D2BDB00DBB2CD /* evening.png in Resources */ = {isa = PBXBuildFile; fileRef = 4310B693275D2BDB00DBB2CD /* evening.png */; };
+		4310B698275D2BDB00DBB2CD /* night.png in Resources */ = {isa = PBXBuildFile; fileRef = 4310B694275D2BDB00DBB2CD /* night.png */; };
+		4310B699275D2BDB00DBB2CD /* morning.png in Resources */ = {isa = PBXBuildFile; fileRef = 4310B695275D2BDB00DBB2CD /* morning.png */; };
 		438A5E2C2751F7BA0051E046 /* WeatherDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 438A5E2B2751F7BA0051E046 /* WeatherDataModel.swift */; };
 		438A5E2E275209DE0051E046 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 438A5E2D275209DE0051E046 /* CollectionViewCell.swift */; };
 		438A5E30275209F00051E046 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 438A5E2F275209F00051E046 /* TableViewCell.swift */; };
@@ -17,7 +27,6 @@
 		439594BF274ABAEC00E5FB8B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 439594BE274ABAEC00E5FB8B /* SceneDelegate.swift */; };
 		439594C1274ABAEC00E5FB8B /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 439594C0274ABAEC00E5FB8B /* WeatherViewController.swift */; };
 		439594C4274ABAEC00E5FB8B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 439594C2274ABAEC00E5FB8B /* Main.storyboard */; };
-		439594C6274ABAED00E5FB8B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 439594C5274ABAED00E5FB8B /* Assets.xcassets */; };
 		439594C9274ABAED00E5FB8B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 439594C7274ABAED00E5FB8B /* LaunchScreen.storyboard */; };
 		43F73FC2274EC2F0001D29D1 /* WeatherPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43F73FC1274EC2F0001D29D1 /* WeatherPresenter.swift */; };
 		43F73FC4274EC2FE001D29D1 /* WeatherInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43F73FC3274EC2FE001D29D1 /* WeatherInteractor.swift */; };
@@ -28,6 +37,16 @@
 
 /* Begin PBXFileReference section */
 		430AA556275A8618005EC99D /* TableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableCell.swift; sourceTree = "<group>"; };
+		4310B686275D2BA300DBB2CD /* AppIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = AppIcon.png; path = "../../../../Downloads/Тестовое РТК ИТ 2/Images/AppIcon.png"; sourceTree = "<group>"; };
+		4310B688275D2BD200DBB2CD /* pressure_mm.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pressure_mm.png; path = "../../../../Downloads/Тестовое РТК ИТ 2/Images/Icons for table/pressure_mm.png"; sourceTree = "<group>"; };
+		4310B689275D2BD200DBB2CD /* wind_speed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = wind_speed.png; path = "../../../../Downloads/Тестовое РТК ИТ 2/Images/Icons for table/wind_speed.png"; sourceTree = "<group>"; };
+		4310B68A275D2BD200DBB2CD /* humidity.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = humidity.png; path = "../../../../Downloads/Тестовое РТК ИТ 2/Images/Icons for table/humidity.png"; sourceTree = "<group>"; };
+		4310B68B275D2BD200DBB2CD /* temp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = temp.png; path = "../../../../Downloads/Тестовое РТК ИТ 2/Images/Icons for table/temp.png"; sourceTree = "<group>"; };
+		4310B68C275D2BD200DBB2CD /* time.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = time.png; path = "../../../../Downloads/Тестовое РТК ИТ 2/Images/Icons for table/time.png"; sourceTree = "<group>"; };
+		4310B692275D2BDB00DBB2CD /* day.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = day.png; path = "../../../../Downloads/Тестовое РТК ИТ 2/Images/Part Image/day.png"; sourceTree = "<group>"; };
+		4310B693275D2BDB00DBB2CD /* evening.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = evening.png; path = "../../../../Downloads/Тестовое РТК ИТ 2/Images/Part Image/evening.png"; sourceTree = "<group>"; };
+		4310B694275D2BDB00DBB2CD /* night.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = night.png; path = "../../../../Downloads/Тестовое РТК ИТ 2/Images/Part Image/night.png"; sourceTree = "<group>"; };
+		4310B695275D2BDB00DBB2CD /* morning.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = morning.png; path = "../../../../Downloads/Тестовое РТК ИТ 2/Images/Part Image/morning.png"; sourceTree = "<group>"; };
 		438A5E2B2751F7BA0051E046 /* WeatherDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDataModel.swift; sourceTree = "<group>"; };
 		438A5E2D275209DE0051E046 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		438A5E2F275209F00051E046 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
@@ -38,7 +57,6 @@
 		439594BE274ABAEC00E5FB8B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		439594C0274ABAEC00E5FB8B /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
 		439594C3274ABAEC00E5FB8B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		439594C5274ABAED00E5FB8B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		439594C8274ABAED00E5FB8B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		439594CA274ABAED00E5FB8B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		43F73FC1274EC2F0001D29D1 /* WeatherPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherPresenter.swift; sourceTree = "<group>"; };
@@ -143,7 +161,16 @@
 		43F73FC0274EC079001D29D1 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
-				439594C5274ABAED00E5FB8B /* Assets.xcassets */,
+				4310B686275D2BA300DBB2CD /* AppIcon.png */,
+				4310B68A275D2BD200DBB2CD /* humidity.png */,
+				4310B688275D2BD200DBB2CD /* pressure_mm.png */,
+				4310B68B275D2BD200DBB2CD /* temp.png */,
+				4310B68C275D2BD200DBB2CD /* time.png */,
+				4310B689275D2BD200DBB2CD /* wind_speed.png */,
+				4310B692275D2BDB00DBB2CD /* day.png */,
+				4310B693275D2BDB00DBB2CD /* evening.png */,
+				4310B695275D2BDB00DBB2CD /* morning.png */,
+				4310B694275D2BDB00DBB2CD /* night.png */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -222,9 +249,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4310B697275D2BDB00DBB2CD /* evening.png in Resources */,
+				4310B696275D2BDB00DBB2CD /* day.png in Resources */,
+				4310B68D275D2BD200DBB2CD /* pressure_mm.png in Resources */,
 				439594C9274ABAED00E5FB8B /* LaunchScreen.storyboard in Resources */,
-				439594C6274ABAED00E5FB8B /* Assets.xcassets in Resources */,
+				4310B699275D2BDB00DBB2CD /* morning.png in Resources */,
+				4310B691275D2BD200DBB2CD /* time.png in Resources */,
+				4310B68F275D2BD200DBB2CD /* humidity.png in Resources */,
 				439594C4274ABAEC00E5FB8B /* Main.storyboard in Resources */,
+				4310B68E275D2BD200DBB2CD /* wind_speed.png in Resources */,
+				4310B687275D2BA300DBB2CD /* AppIcon.png in Resources */,
+				4310B698275D2BDB00DBB2CD /* night.png in Resources */,
+				4310B690275D2BD200DBB2CD /* temp.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

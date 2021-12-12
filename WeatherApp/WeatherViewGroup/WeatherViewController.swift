@@ -35,6 +35,13 @@ class WeatherViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var nowLabel: UILabel!
     
+    private let mainColor = UIColor(red: 242/255,
+                                green: 242/255,
+                                blue: 247/255,
+                                alpha: 1)
+    private let distance: CGFloat = 20
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configurator.configurate(with: self)
@@ -46,24 +53,16 @@ class WeatherViewController: UIViewController {
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.showsHorizontalScrollIndicator = false
-        collectionView.backgroundColor = UIColor(red: 242/255,
-                                                 green: 242/255,
-                                                 blue: 247/255,
-                                                 alpha: 1)
+        collectionView.backgroundColor = mainColor
         
         tableView.delegate = self
         tableView.dataSource = self
         tableView.showsVerticalScrollIndicator = false
         tableView.isScrollEnabled = false
         tableView.isUserInteractionEnabled = false
-        tableView.rowHeight = UITableView.automaticDimension
-        tableView.estimatedRowHeight = 250
         tableView.layer.cornerRadius = 15
         
-        view.backgroundColor = UIColor(red: 242/255,
-                                       green: 242/255,
-                                       blue: 247/255,
-                                       alpha: 1)
+        view.backgroundColor = mainColor
     }
 }
 
@@ -72,6 +71,8 @@ extension WeatherViewController: WeatherViewInputProtocol {
         self.tableSection = section
         DispatchQueue.main.async {
             self.tableView.reloadData()
+            let tableViewHeight = CGFloat(self.tableSection.rows[0].height) * CGFloat(self.tableSection.rows.count)
+            self.tableView.heightAnchor.constraint(equalToConstant: tableViewHeight).isActive = true
         }
     }
     
@@ -106,18 +107,18 @@ extension WeatherViewController: UICollectionViewDataSource, UICollectionViewDel
 }
 
 extension WeatherViewController: UICollectionViewDelegateFlowLayout {
+
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let weight = collectionView.frame.width - 10
-        let height = section.rows[indexPath.row].height
+        let weight = collectionView.frame.width - 120
+        let height = collectionView.frame.height - 10
         return CGSize(width: CGFloat(weight), height: CGFloat(height))
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 0)
+        UIEdgeInsets(top: 0, left: distance, bottom: 0, right: 0)
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        20
+        distance
     }
-    
 }
 
 extension WeatherViewController: UITableViewDataSource, UITableViewDelegate {
