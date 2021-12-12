@@ -28,8 +28,7 @@ class WeatherViewController: UIViewController {
     private var tableSection: TableSectionRowsRepresentable = TableSection()
     
     var presenter: WeatherViewOutputProtocol!
-    private let configurator: ConfiguratorProtocol = Configurator()
-    
+
     @IBOutlet weak var todayLabel: UILabel!
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var tableView: UITableView!
@@ -44,7 +43,6 @@ class WeatherViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        configurator.configurate(with: self)
         presenter.getFeatureWeather()
         presenter.getTodayWeather()
         presenter.getTodayDay()
