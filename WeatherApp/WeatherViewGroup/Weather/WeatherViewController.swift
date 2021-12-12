@@ -39,6 +39,7 @@ class WeatherViewController: UIViewController {
                                 blue: 247/255,
                                 alpha: 1)
     private let distance: CGFloat = 20
+    private let cornerRadius: CGFloat = 15
     
     
     override func viewDidLoad() {
@@ -58,7 +59,7 @@ class WeatherViewController: UIViewController {
         tableView.showsVerticalScrollIndicator = false
         tableView.isScrollEnabled = false
         tableView.isUserInteractionEnabled = false
-        tableView.layer.cornerRadius = 15
+        tableView.layer.cornerRadius = cornerRadius
         
         view.backgroundColor = mainColor
     }
@@ -69,7 +70,10 @@ extension WeatherViewController: WeatherViewInputProtocol {
         self.tableSection = section
         DispatchQueue.main.async {
             self.tableView.reloadData()
-            let tableViewHeight = CGFloat(self.tableSection.rows[0].height) * CGFloat(self.tableSection.rows.count)
+            
+            guard let rowHeight = self.tableSection.rows.first?.height else { return }
+            let rowCount = self.tableSection.rows.count
+            let tableViewHeight = CGFloat(rowHeight) * CGFloat(rowCount)
             self.tableView.heightAnchor.constraint(equalToConstant: tableViewHeight).isActive = true
         }
     }
