@@ -11,7 +11,7 @@ class RequestManager {
     private init () {}
     static let shared = RequestManager()
     
-    func fetchData(with requestData: RequestData, complition: @escaping (WeatherData?) -> Void) {
+    func fetchData(with requestData: RequestData, isCache: Bool, complition: @escaping (WeatherData?) -> Void) {
         var weatherData: WeatherData?
         
         var url: URL? {
@@ -43,6 +43,9 @@ class RequestManager {
                     decoder.keyDecodingStrategy = .convertFromSnakeCase
                     weatherData  = try decoder.decode(WeatherData.self, from: data)
                     DataManager.shared.saveWeatherData(data: weatherData)
+                    if isCache {
+                        DataManager.shared.saveWeatherDataCache(data: data)
+                    }
                     DispatchQueue.main.async {
                         complition(weatherData)
                     }

@@ -56,6 +56,9 @@ extension DataManager {
     func getConstant() -> String {
         "СЕЙЧАС"
     }
+    func getChacheTime() -> Double {
+        300
+    }
 }
 
 extension DataManager {
@@ -80,5 +83,39 @@ extension DataManager {
     func getValueSigns() -> [String: String] {
         valueSigns
     }
-    
 }
+
+// Work with UserDefaults
+extension DataManager {
+    func saveWeatherDataCache(data: Data?) {
+        guard let data = data else { return }
+        do {
+            let dataSave = try NSKeyedArchiver.archivedData(withRootObject: data, requiringSecureCoding: false)
+            UserDefaults.standard.set(dataSave, forKey: "weatherData")
+            
+            let unixtime = Date().timeIntervalSince1970
+            UserDefaults.standard.set(unixtime, forKey: "unixtime")
+        } catch {
+            print(error)
+        }
+    }
+    func getWeatherDataFromCache() -> WeatherData? {
+        var weatherData: WeatherData?
+        let data = UserDefaults.standard.object(forKey: "weatherData")
+        do {
+            if let cache = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data as! Data) {
+                let decoder = JSONDecoder()
+                decoder.keyDecodingStrategy = .convertFromSnakeCase
+                weatherData  = try decoder.decode(WeatherData.self, from: cache as! Data)
+            }
+        } catch {
+            print("Couldn't read file.")
+        }
+        return weatherData
+    }
+    
+    func getTimeFromCache() -> Double? {
+        return UserDefaults.standard.value(forKey: "unixtime") as? Double
+    }
+}
+

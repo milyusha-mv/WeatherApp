@@ -33,7 +33,7 @@ class WeatherViewInteractor: WeatherViewInteractorInputProtocol {
         let requestData = DataManager.shared.requestData
         let weatherData = DataManager.shared.getWeatherData()
         if weatherData == nil {
-            RequestManager.shared.fetchData(with: requestData) { weatherData in
+            RequestManager.shared.fetchData(with: requestData, isCache: false) { weatherData in
                 self.fillFeatureWeathers(for: weatherData)
             }
         }
@@ -44,7 +44,7 @@ class WeatherViewInteractor: WeatherViewInteractorInputProtocol {
         let requestData = DataManager.shared.requestData
         let weatherData = DataManager.shared.getWeatherData()
         if weatherData == nil {
-            RequestManager.shared.fetchData(with: requestData) { weatherData in
+            RequestManager.shared.fetchData(with: requestData, isCache: false) { weatherData in
                 self.fillCurrentWeathers(for: weatherData)
             }
         }
@@ -57,7 +57,7 @@ class WeatherViewInteractor: WeatherViewInteractorInputProtocol {
         let weatherData = DataManager.shared.getWeatherData()
         if weatherData == nil {
             
-            RequestManager.shared.fetchData(with: requestData) { weatherData in
+            RequestManager.shared.fetchData(with: requestData, isCache: false) { weatherData in
                 guard let weatherData = weatherData else { return }
                 guard let dateUnix = weatherData.now else { return }
                 self.presenter.todayDayDidRecieved(dateUnix: dateUnix)

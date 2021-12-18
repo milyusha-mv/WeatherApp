@@ -23,11 +23,29 @@ class LaunchInteractor: LaunchInteractorInputProtocol {
     }
     
     func fetchDataForWeatherViewController() {
+        if let lastUnixtime = DataManager.shared.getTimeFromCache() {
+            let currentUnixtime = Date().timeIntervalSince1970
+            let chacheTime = DataManager.shared.getChacheTime()
+            if (currentUnixtime - lastUnixtime) < chacheTime {
+                let weatherData =  DataManager.shared.getWeatherDataFromCache()
+                DataManager.shared.saveWeatherData(data: weatherData)
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                    self.presenter.dataForWeatherViewControllerDidRecieved()
+                    }
+            } else {
+                fetchDataAndSaveCache()
+                }
+        } else {
+            fetchDataAndSaveCache()
+            }
+    }
+    
+    func fetchDataAndSaveCache() {
         let requestData = DataManager.shared.requestData
-        RequestManager.shared.fetchData(with: requestData) { _ in
+        RequestManager.shared.fetchData(with: requestData, isCache: true) { _ in
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                 self.presenter.dataForWeatherViewControllerDidRecieved()
+                }
             }
-        }
     }
 }
