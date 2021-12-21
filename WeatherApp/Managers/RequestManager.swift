@@ -33,9 +33,15 @@ class RequestManager {
         request.httpMethod = "GET"
         request.setValue(requestData.apiKey, forHTTPHeaderField: requestData.header)
         
-        URLSession.shared.dataTask(with: request) { data, _, error in
+        URLSession.shared.dataTask(with: request) { data, response, error in
             if let error = error {
                 print(error)
+            }
+            if let response = response as? HTTPURLResponse {
+                if response.statusCode != 200 {
+                    print("HTTP ERROR!")
+                    complition(nil)
+                }
             }
             if let data = data {
                 do {

@@ -9,6 +9,7 @@ import Foundation
 
 protocol LaunchInteractorOutputProtocol: AnyObject {
     func dataForWeatherViewControllerDidRecieved()
+    func dataForWeatherViewControllerDidNotRecieved()
 }
 
 protocol LaunchInteractorInputProtocol: AnyObject {
@@ -42,10 +43,14 @@ class LaunchInteractor: LaunchInteractorInputProtocol {
     
     func fetchDataAndSaveCache() {
         let requestData = DataManager.shared.requestData
-        RequestManager.shared.fetchData(with: requestData, isCache: true) { _ in
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                self.presenter.dataForWeatherViewControllerDidRecieved()
-                }
+        RequestManager.shared.fetchData(with: requestData, isCache: true) { answer in
+            if answer == nil {
+                self.presenter.dataForWeatherViewControllerDidNotRecieved()
+            } else {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                    self.presenter.dataForWeatherViewControllerDidRecieved()
+                    }
             }
+        }
     }
 }

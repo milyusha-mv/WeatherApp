@@ -70,7 +70,6 @@ extension WeatherViewController: WeatherViewInputProtocol {
         self.tableSection = section
         DispatchQueue.main.async {
             self.tableView.reloadData()
-            
             guard let rowHeight = self.tableSection.rows.first?.height else { return }
             let rowCount = self.tableSection.rows.count
             let tableViewHeight = CGFloat(rowHeight) * CGFloat(rowCount)

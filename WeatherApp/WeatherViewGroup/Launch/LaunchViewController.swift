@@ -13,9 +13,11 @@ protocol LaunchViewOutputProtocol: AnyObject {
 }
 
 protocol LaunchViewInputProtocol: AnyObject {
+    func showErrorAlert()
 }
 
 class LaunchViewController: UIViewController, LaunchViewInputProtocol {
+    
     var presenter: LaunchViewOutputProtocol!
     private let configurator: LaunchConfiguratorProtocol = LaunchConfigurator()
     
@@ -32,5 +34,17 @@ class LaunchViewController: UIViewController, LaunchViewInputProtocol {
         let weatherVC = segue.destination as! WeatherViewController
         let configurator: ConfiguratorProtocol = Configurator()
         configurator.configurate(with: weatherVC)
+    }
+    
+    func showErrorAlert() {
+        DispatchQueue.main.async {
+            self.activityIndicator.isHidden = true
+            let alert = UIAlertController(title: "Ошибка", message: "Произошла ошибка получения данных", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Повторить", style: .default, handler: { _ in
+                self.activityIndicator.isHidden = false
+                self.presenter.launchScreenStart()
+            }))
+            self.present(alert, animated: true)
+        }
     }
 }

@@ -17,7 +17,7 @@ struct FeatureWeather {
 
 struct CurrentWeather {
     let title: String
-    let value: Int
+    let value: String
     let valueSign: String
     let image: String
 }

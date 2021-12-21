@@ -85,23 +85,30 @@ extension WeatherViewInteractor {
         let icons = DataManager.shared.getIcons()
         let valueSigns = DataManager.shared.getValueSigns()
         
-        let values: [Any] = [weatherData.fact?.temp as Any,
-                      weatherData.fact?.feelsLike as Any,
-                      weatherData.fact?.windSpeed as Any,
-                      weatherData.fact?.pressureMm as Any,
-                      weatherData.fact?.humidity as Any]
-                     // weatherData.fact?.obsTime as Any]
+        guard let temp = weatherData.fact?.temp else { return }
+        guard let feelsLike = weatherData.fact?.feelsLike else { return }
+        guard let windSpeed = weatherData.fact?.windSpeed else { return }
+        guard let pressureMm = weatherData.fact?.pressureMm else { return }
+        guard let humidity = weatherData.fact?.humidity else { return }
+        guard let obsTime = weatherData.fact?.obsTime else { return }
+        
+        let values: [String] = [String(temp),
+                                String(feelsLike),
+                                String(windSpeed),
+                                String(pressureMm),
+                                String(humidity),
+                                String(obsTime)]
         
         for index in 0...values.count - 1 {
             let title = titles[index]
-            guard let value = values[index] as? Int else { return }
-            let icon = icons[title] ?? ""
-            let valueSign = valueSigns[title] ?? ""
-            let currentWeather = CurrentWeather(title: title,
-                                                value: value,
-                                                valueSign: valueSign,
-                                                image: icon)
-            currentWeathers.append(currentWeather)
+                let value = values[index]
+                let icon = icons[title] ?? ""
+                let valueSign = valueSigns[title] ?? ""
+                let currentWeather = CurrentWeather(title: title,
+                                                    value: value,
+                                                    valueSign: valueSign,
+                                                    image: icon)
+                currentWeathers.append(currentWeather)
         }
         presenter.dataForTableViewCellDidRecieved(currentWeathers: currentWeathers)
     }

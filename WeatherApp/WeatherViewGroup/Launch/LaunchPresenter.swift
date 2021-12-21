@@ -23,6 +23,10 @@ class LaunchPresenter: LaunchViewOutputProtocol {
 }
 
 extension LaunchPresenter: LaunchInteractorOutputProtocol {
+    func dataForWeatherViewControllerDidNotRecieved() {
+        view.showErrorAlert()
+    }
+    
     func dataForWeatherViewControllerDidRecieved() {
         router.openWeatherViewController()
     }
