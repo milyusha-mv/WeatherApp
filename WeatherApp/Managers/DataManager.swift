@@ -12,7 +12,7 @@ class DataManager {
     static let shared = DataManager()
     var weatherData: WeatherData?
     
-    let requestData = RequestData(host: "api.weather.yandex.ru",
+    var requestData = RequestData(host: "api.weather.yandex.ru",
                                   header: "X-Yandex-API-Key",
                                   apiKey: "ce929102-9793-4d2b-a73d-0424b45f723f",
                                   path: "/v2/informers",
@@ -116,6 +116,13 @@ extension DataManager {
     
     func getTimeFromCache() -> Double? {
         return UserDefaults.standard.value(forKey: "unixtime") as? Double
+    }
+}
+
+extension DataManager {
+    func setRequestData(latitude: Double, longitude: Double) {
+        requestData.lat = "\(latitude)"
+        requestData.lon = "\(longitude)"
     }
 }
 

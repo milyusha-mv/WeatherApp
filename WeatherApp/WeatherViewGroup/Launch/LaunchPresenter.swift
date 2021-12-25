@@ -8,6 +8,7 @@
 import Foundation
 
 class LaunchPresenter: LaunchViewOutputProtocol {
+    
     var interactor: LaunchInteractorInputProtocol!
     var router: LaunchRouterInputProtocol!
     
@@ -20,11 +21,15 @@ class LaunchPresenter: LaunchViewOutputProtocol {
     func launchScreenStart() {
         interactor.fetchDataForWeatherViewController()
     }
+    
+    func saveLocation(latitude: Double, longitude: Double) {
+        interactor.setLocationToDataManager(latitude: latitude, longitude: longitude)
+    }
 }
 
 extension LaunchPresenter: LaunchInteractorOutputProtocol {
     func dataForWeatherViewControllerDidNotRecieved() {
-        view.showErrorAlert()
+        view.showErrorAlert(title: "Fail", message: "An error occurred while fetching data")
     }
     
     func dataForWeatherViewControllerDidRecieved() {

@@ -15,12 +15,18 @@ protocol LaunchInteractorOutputProtocol: AnyObject {
 protocol LaunchInteractorInputProtocol: AnyObject {
     init(presenter: LaunchInteractorOutputProtocol)
     func fetchDataForWeatherViewController()
+    func setLocationToDataManager(latitude: Double, longitude: Double)
 }
 
 class LaunchInteractor: LaunchInteractorInputProtocol {
+    
     unowned let presenter: LaunchInteractorOutputProtocol!
     required init(presenter: LaunchInteractorOutputProtocol) {
         self.presenter = presenter
+    }
+    
+    func setLocationToDataManager(latitude: Double, longitude: Double){
+        DataManager.shared.setRequestData(latitude: latitude, longitude: longitude)
     }
     
     func fetchDataForWeatherViewController() {

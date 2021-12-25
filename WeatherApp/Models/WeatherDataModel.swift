@@ -22,7 +22,7 @@ struct Info: Decodable {
 struct Fact: Decodable {
     let temp: Int? // температура
     let feelsLike: Int? // темп. ощущается
-    let windSpeed: Int? // скорость ветра
+    let windSpeed: Double? // скорость ветра
     let pressureMm: Int? // давление (в мм рт. ст.)
     let humidity: Int? // влажность
     let obsTime: Double? // время замера
