@@ -1,8 +1,8 @@
 # WeatherApp
 Приложение для отображения погоды:
-VIPER
-CollectionView
-TableView
-Cache (UserDefaults)
-Geolocation
-YandexAPI
+<br>VIPER
+<br>CollectionView
+<br>TableView
+<br>Cache (UserDefaults)
+<br>Geolocation
+<br>YandexAPI
